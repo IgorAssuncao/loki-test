@@ -3,15 +3,12 @@ kind: Application
 metadata:
   name: loki
   namespace: loki
-  labels:
-    argocd.happening.dev/domain: ops
-    argocd.happening.dev/environment: dev
-    argocd.happening.dev/layer: two
 spec:
   project: default
 
   destination:
     namespace: loki
+    server: https://kubernetes.default.svc
 
   syncPolicy:
     automated:
