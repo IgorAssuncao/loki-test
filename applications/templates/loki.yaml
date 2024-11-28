@@ -17,6 +17,7 @@ spec:
     syncOptions:
       - ApplyOutOfSyncOnly=true
       - CreateNamespace=true
+      - Prune=true
   source:
     repoURL: https://github.com/IgorAssuncao/loki-test
     path: loki/chart
