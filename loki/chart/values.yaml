@@ -2,6 +2,12 @@ loki-distributed:
   fullnameOverride: "loki"
 
   loki:
+    deploymentMode: distributed
+    migrate:
+      fromDistributed:
+        enabled: true
+        memberlistService: loki-memberlist
+
     structuredConfig:
       auth_enabled: true
 
