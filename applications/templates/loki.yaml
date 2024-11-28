@@ -21,7 +21,7 @@ spec:
   source:
     repoURL: https://github.com/IgorAssuncao/loki-test
     path: loki/chart
-    targetRevision: master
+    targetRevision: HEAD
     helm:
       valueFiles:
         - values.yaml
