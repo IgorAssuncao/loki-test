@@ -19,11 +19,11 @@ loki-distributed:
         http_server_read_timeout: 600s
         http_server_write_timeout: 600s
 
-      # https://grafana.com/docs/loki/latest/configuration/#distributor
-      # distributor:
-
-      # https://grafana.com/docs/loki/latest/configuration/#memberlist_config
-      # memberlist:
+      storage:
+        bucketNames: 
+          chunks: dev-loki-blocks-chunks
+          ruler: dev-loki-blocks-ruler
+          admin: dev-loki-blocks-admin
 
       # https://grafana.com/docs/loki/latest/configuration/#ingester
       ingester:
