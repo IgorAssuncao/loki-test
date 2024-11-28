@@ -1,0 +1,16 @@
+apiVersion: v2
+name: loki
+description: A Helm chart for SRE loki-ops cluster deployment
+type: application
+version: 0.1.0
+appVersion: 3.3.0
+
+dependencies:
+  - name: loki-distributed
+    alias: loki
+    version: 0.78.5
+    repository: https://grafana.github.io/helm-charts
+  # - name: loki
+  #   repository: https://grafana.github.io/helm-charts
+  #   version: 6.21.0
+
