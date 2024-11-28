@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: loki
-  namespace: argocd
+  namespace: loki
   labels:
     argocd.happening.dev/domain: ops
     argocd.happening.dev/environment: dev
