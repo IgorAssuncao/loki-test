@@ -1,0 +1,5 @@
+apiVersion: v2
+name: appofapps
+description: AppOfApps argocd application that controls other applications
+type: application
+version: 0.1.0
