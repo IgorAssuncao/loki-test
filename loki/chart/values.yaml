@@ -1,12 +1,27 @@
-loki-distributed:
+loki:
   fullnameOverride: "loki"
 
+  deploymentMode: SimpleScalable<->Distributed
   loki:
-    deploymentMode: distributed
     migrate:
       fromDistributed:
         enabled: true
         memberlistService: loki-memberlist
+
+    storage:
+      bucketNames: 
+        chunks: dev-loki-blocks-chunks
+        ruler: dev-loki-blocks-ruler
+        admin: dev-loki-blocks-admin
+
+    schema_config:
+      configs:
+        - from: 2023-07-01
+          store: tsdb
+          schema: v12
+          index:
+            prefix: tsdb_index_
+            period: 24h
 
     structuredConfig:
       auth_enabled: true
@@ -18,12 +33,6 @@ loki-distributed:
         log_request_at_info_level_enabled: true
         http_server_read_timeout: 600s
         http_server_write_timeout: 600s
-
-      storage:
-        bucketNames: 
-          chunks: dev-loki-blocks-chunks
-          ruler: dev-loki-blocks-ruler
-          admin: dev-loki-blocks-admin
 
       # https://grafana.com/docs/loki/latest/configuration/#ingester
       ingester:
