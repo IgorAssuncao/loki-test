@@ -155,6 +155,10 @@ loki:
         parallelism: 4 # Maximum number of tasks sent to one querier. Querier must have enough CPU capacity to handle these tasks
         grpc_client_config:
           grpc_compression: "snappy"
+        readinessProbe:
+          timeoutSeconds: 5
+        livenessProbe:
+          timeoutSeconds: 5
 
       # https://grafana.com/docs/loki/latest/configuration/#frontend
       frontend:
@@ -163,11 +167,19 @@ loki:
         compress_responses: true
         grpc_client_config:
           grpc_compression: "snappy"
+        readinessProbe:
+          timeoutSeconds: 5
+        livenessProbe:
+          timeoutSeconds: 5
 
       # https://grafana.com/docs/loki/latest/configuration/#compactor
       compactor:
         retention_enabled: true
         working_directory: /var/loki/compactor
+        readinessProbe:
+          timeoutSeconds: 5
+        livenessProbe:
+          timeoutSeconds: 5
 
       compactor_grpc_client:
         grpc_compression: "snappy"
@@ -192,11 +204,20 @@ loki:
           dir: /var/loki/ruler-wal
         ruler_client:
           grpc_compression: "snappy"
+        readinessProbe:
+          timeoutSeconds: 5
+        livenessProbe:
+          timeoutSeconds: 5
 
     readinessProbe:
       timeoutSeconds: 5
     livenessProbe:
       timeoutSeconds: 5
+
+  readinessProbe:
+    timeoutSeconds: 5
+  livenessProbe:
+    timeoutSeconds: 5
 
   runtimeConfig:
     overrides:
