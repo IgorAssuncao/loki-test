@@ -8,6 +8,17 @@ loki:
         enabled: true
         memberlistService: loki-memberlist
 
+    readinessProbe:
+      httpGet:
+        path: /ready
+        port: http-metrics
+      initialDelaySeconds: 45
+    livenessProbe:
+      httpGet:
+        path: /ready
+        port: http-metrics
+      initialDelaySeconds: 45
+
     storage:
       bucketNames: 
         chunks: dev-loki-blocks-chunks
@@ -188,16 +199,6 @@ loki:
           dir: /var/loki/ruler-wal
         ruler_client:
           grpc_compression: "snappy"
-
-    readinessProbe:
-      timeoutSeconds: 5
-    livenessProbe:
-      timeoutSeconds: 5
-
-  readinessProbe:
-    timeoutSeconds: 5
-  livenessProbe:
-    timeoutSeconds: 5
 
   runtimeConfig:
     overrides:
