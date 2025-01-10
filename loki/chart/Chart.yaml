@@ -4,7 +4,7 @@ namespace: loki
 description: A Helm chart for SRE loki-ops cluster deployment
 type: application
 version: 0.1.0
-appVersion: 3.3.0
+appVersion: 3.3.2
 
 dependencies:
   # - name: loki-distributed
@@ -13,5 +13,5 @@ dependencies:
   #   repository: https://grafana.github.io/helm-charts
   - name: loki
     repository: https://grafana.github.io/helm-charts
-    version: 6.21.0
+    version: 6.24.0
 
